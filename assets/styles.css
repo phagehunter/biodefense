@@ -1,6 +1,7 @@
 /* US Biodefense Budget — stylesheet
    Chrome (nav, type, buttons, cards) shares tokens with curtishoffmann.com.
    Data colors: blue for the FY2026 request, warm for increases, rust for cuts.
+   Dark-only by design. */
 
 :root {
   --bg: #000b18;
