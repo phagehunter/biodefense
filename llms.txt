@@ -1,0 +1,29 @@
+# US Biodefense Budget
+
+> Where US federal biodefense money goes, line by line, by Curtis Hoffmann: 887 budget lines across 10 departments that the Council on Strategic Risks counts as biodefense, from FY2019 actual spending to the FY2026 request, with department and category totals, year-over-year change, and a searchable table.
+
+Site: https://curtishoffmann.com/biodefense/
+Source and data (MIT code; budget data from the Council on Strategic Risks): https://github.com/phagehunter/biodefense
+
+## Main sections (one page, anchored)
+
+- Overview, department and category breakdowns for the FY2026 request with FY2024 actual and FY2025 enacted behind them, and totals by year back to FY2019: https://curtishoffmann.com/biodefense/#overview
+- Programs, a searchable and sortable table of every line with change from FY2025 enacted to the FY2026 request, descriptions from the budget justifications, and a "moved" marker for lines that changed office; the filter state lives in the URL: https://curtishoffmann.com/biodefense/#programs
+- Index, all 887 lines by department, readable without JavaScript: https://curtishoffmann.com/biodefense/#index
+- Where the numbers come from, including what actual, enacted and request mean: https://curtishoffmann.com/biodefense/#sources
+
+## Data
+
+- Source: the Biodefense Budget Breakdown maintained by the Janne E. Nolan Center at the Council on Strategic Risks, which compiles program-level figures from congressional budget justifications. https://councilonstrategicrisks.org/nolan/biodefense-budget-breakdown/
+- Citation: Chwalek, Sabrina. "US Biodefense Budget Breakdown: Fiscal Year 2026 Update." Council on Strategic Risks, 9 December 2025.
+- Files: `data/programs.json` (887 lines) and `data/meta.json` (source, units, year keys, totals) in the repository, converted from CSR's workbook on 14 October 2026 by `fetch_data.py`. Units are millions of nominal US dollars; year keys end in A (actual), E (enacted) or R (requested).
+- Departments: Commerce, DHS, DOE, DoD, EPA, HHS, NSF, State, USDA, VA. Categories: Admin/Policy, Agricultural Security, CBRN Defense, Domestic Health Capacity, Early Warning, Enabling Research, Global Health Security, MCMs, PPE, Prevention, Public Health.
+- Totals reconcile with CSR's published figures: $30.40 billion FY2024 actual, $30.28 billion FY2025 enacted, $27.02 billion FY2026 request.
+- Caveat: lines that moved between offices in the FY2026 request are merged into one line with a "moved" note (twelve lines); rows that share a name but overlap in time are kept apart and tagged.
+
+## License and contact
+
+- Code: MIT License. The budget data is the Council on Strategic Risks' work, redistributed reshaped but unchanged in substance; see their site for terms.
+- Author: Curtis Hoffmann, https://curtishoffmann.com/
+- Contact and issues: https://github.com/phagehunter/biodefense/issues
+- Sitemap: https://curtishoffmann.com/biodefense/sitemap.xml
