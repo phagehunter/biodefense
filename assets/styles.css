@@ -24,11 +24,11 @@
   
 
   --serif: 'Crimson Pro', Georgia, 'Times New Roman', serif;
-  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sans: 'Outfit', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --nav-h: 64px;
-  --gutter: 16px;
+  --gutter: clamp(20px, 5.5vw, 32px); /* 20 px on small phones, 32 px from about 580 px up */
   --radius: 6px;
   --wrap: 1240px;
 }
@@ -48,7 +48,6 @@ img, svg, canvas { max-width: 100%; }
 .skip-link { position: absolute; left: var(--gutter); top: -60px; background: var(--gold); color: var(--bg); padding: 8px 14px; border-radius: 4px; z-index: 200; font-weight: 600; }
 .skip-link:focus { top: 10px; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); position: relative; z-index: 2; }
-@media (min-width: 720px) { :root { --gutter: 32px; } }
 .mono { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; }
 .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
 
@@ -60,7 +59,7 @@ img, svg, canvas { max-width: 100%; }
 .nav.scrolled { border-bottom-color: var(--line); background: rgba(0, 11, 24, 0.94); }
 .nav-inner { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: center; gap: 12px; }
 .nav-title { font-family: var(--serif); font-size: 21px; font-style: italic; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
-.nav-title .mark { width: 9px; height: 9px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 10px rgba(124,196,255,.7); }
+.nav-title .mark { width: 22px; height: 22px; flex: none; color: var(--blue); }
 .nav-links { display: none; align-items: center; gap: 2px; margin-left: 8px; flex: 1; }
 .nav-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 8px 11px; border-radius: 4px; }
 .nav-link:hover { color: var(--ink); background: rgba(255,255,255,.04); }
@@ -79,7 +78,7 @@ img, svg, canvas { max-width: 100%; }
 @media (max-width: 480px) { .nav-home .lbl { display: none; } }
 
 /* ───────── Hero ───────── */
-.hero { padding: calc(var(--nav-h) + 56px) 0 48px; }
+.hero { padding-top: calc(var(--nav-h) + 56px); padding-bottom: 48px; } /* side padding comes from .wrap */
 .hero h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(46px, 9.5vw, 116px); line-height: .98; letter-spacing: -0.015em; margin: 18px 0 14px; }
 .hero h1 em { font-style: italic; color: var(--blue); }
 .hero .lead { max-width: 680px; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.65; color: var(--ink-dim); margin: 0 0 36px; }
@@ -101,7 +100,7 @@ img, svg, canvas { max-width: 100%; }
 .btn.small { padding: 7px 12px; min-height: 40px; font-size: 13px; }
 
 /* ───────── Sections ───────── */
-section.block { padding: 64px 0 24px; scroll-margin-top: var(--nav-h); }
+section.block { padding-top: 64px; padding-bottom: 24px; scroll-margin-top: var(--nav-h); }
 .section-label { display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
 .section-label .num { color: var(--gold); }
 .section-label .rule { flex: 1; height: 1px; background: var(--line); }

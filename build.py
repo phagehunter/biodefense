@@ -58,6 +58,17 @@ def json_ld():
         {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Curtis Hoffmann", "item": "https://curtishoffmann.com/"}, {"@type": "ListItem", "position": 2, "name": "US Biodefense Budget", "item": url}]}]}, indent=1, ensure_ascii=False)
 
 
+def asset_version():
+    """Short hash of the stylesheet and script, so a change to either busts browser caches."""
+    import hashlib
+    h = hashlib.sha256()
+    for f in ("styles.css", "app.js"):
+        fp = ROOT / "assets" / f
+        if fp.exists():
+            h.update(fp.read_bytes())
+    return h.hexdigest()[:10]
+
+
 def main():
     t = META["totals"]
     a, e, r = t.get("2024A", 0), t.get("2025E", 0), t.get("2026R", 0)
@@ -68,7 +79,7 @@ def main():
         "{{TOTAL_A}}": big(a), "{{TOTAL_E}}": big(e), "{{TOTAL_R}}": big(r), "{{TOTAL_CHG}}": chg, "{{TOTAL_CUT}}": big(abs(d)),
         "{{N_MOVED}}": str(META["merged_moves"]), "{{CITATION}}": html.escape(META["citation"]),
         "{{CONVERTED}}": datetime.date.fromisoformat(META["converted"]).strftime("%-d %B %Y"),
-        "{{ASSET_VERSION}}": META["converted"].replace("-", ""),
+        "{{ASSET_VERSION}}": asset_version(),
         "{{PROGRAM_INDEX}}": program_index(), "{{JSON_LD}}": json_ld(),
         "{{META_JSON}}": json.dumps(META, separators=(",", ":"), ensure_ascii=False).replace("</", "<\\/"),
     }
